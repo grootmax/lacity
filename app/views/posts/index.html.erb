@@ -1,0 +1,11 @@
+<h1>Blog Posts</h1>
+
+<hr>
+
+<% @posts.each do |post| %>
+  <article>
+    <h2><%= link_to post.title, post_path(post) %></h2>
+    <p><%= truncate(post.body, length: 100) %></p> <%# Show first 100 chars %>
+  </article>
+  <hr>
+<% end %>

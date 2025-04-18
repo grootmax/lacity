@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p> <%# Display flash notice if any %>
+
+<h1><%= @post.title %></h1>
+
+<div>
+  <strong>Body:</strong>
+  <p>
+    <%= @post.body %>
+  </p>
+</div>
+
+<hr>
+
+<%= link_to "Edit this post", edit_admin_post_path(@post) %> |
+<%= link_to "Back to posts", admin_posts_path %>
+
+<br><br>
+
+<%= button_to "Destroy this post", [:admin, @post], method: :delete, data: { confirm: 'Are you sure?' } %>

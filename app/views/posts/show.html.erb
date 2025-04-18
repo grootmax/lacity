@@ -1,0 +1,37 @@
+<h1><%= @post.title %></h1>
+
+<p><%= @post.body %></p>
+
+<hr>
+
+<h2>Comments</h2>
+<div id="comments">
+  <% @post.comments.each do |comment| %>
+    <div class="comment">
+      <p><%= comment.body %></p>
+      <small>Posted <%= time_ago_in_words(comment.created_at) %> ago</small>
+    </div>
+    <hr>
+  <% end %>
+</div>
+
+<hr>
+
+<h2>Add a Comment</h2>
+<%= form_with(model: [@post, @comment], url: post_comments_path(@post)) do |form| %>
+  <%# No need to display comment errors here usually, as we redirect %>
+  <%# If we rendered instead of redirecting on failure, we'd need error display %>
+
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </div>
+
+  <div>
+    <%= form.submit "Post Comment" %>
+  </div>
+<% end %>
+
+<hr>
+
+<%= link_to "Back to Posts", posts_path %>

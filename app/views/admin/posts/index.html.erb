@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p> <%# Display flash notice if any %>
+
+<h1>Admin Posts</h1>
+
+<%= link_to "New Post", new_admin_post_path %>
+
+<hr>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr id="<%= dom_id(post) %>">
+        <td><%= post.title %></td>
+        <td><%= link_to "Show", [:admin, post] %></td>
+        <td><%= link_to "Edit", edit_admin_post_path(post) %></td>
+        <td><%= button_to "Destroy", [:admin, post], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

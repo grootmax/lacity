@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: This is a comment on the first post.
+  post: one # Associates with post 'one' in posts.yml
+
+two:
+  body: Another comment, this time on the second post.
+  post: two # Associates with post 'two' in posts.yml
+
+three:
+  body: A second comment on the first post.
+  post: one # Associates with post 'one' in posts.yml
